@@ -1,0 +1,21 @@
+board:
+  nrows: 7
+  ncols: 6
+  cell_size: 0.027
+# init_X_EM is computed as follows:
+#   X_GM = gtsam.Pose3(gtsam.Rot3.Rz(math.pi/2), gtsam.Point3(0.275, -0.027*3, 0.))
+#   X_EG = gtsam.Pose3(gtsam.Rot3.Rx(-22.5*math.pi/180), gtsam.Point3())
+#   X_EM = X_EG.compose(X_GM)
+# where G: gripper, E: end-effector, C: chessboard(M)
+# And we cheat for a (not-yet-sure) 29mm offset in x to have 0.303
+init_X_EM: [0.303685045, -0.07483424213341423, 0.030997358021572274, -2.536326566618167e-17, 0.3926990816987242, 1.5707963267948966]
+camera_names:
+  [astrapro_black_ir,
+  astrapro_black_rgb,
+  astrapro_white_ir,
+  astrapro_white_rgb,
+  astrapro_orange2_ir,
+  astrapro_orange2_rgb]
+path_to_intrinsics: "/Users/duy-nguyenta/data/ammonite-extrinsic"
+exclude:
+  astrapro_black_ir: [1]
